@@ -1,0 +1,37 @@
+package com.rk.Java_Basics.Arrays_ArrayList;
+
+public class Max {
+    public static void main(String[] args) {
+        int[] arr = {4,22,44,11,22,5,23};
+       int ans = maxRange(arr,1,2);
+        System.out.println(ans);
+    }
+    
+    //find max in given range
+    static int maxRange(int[] arr, int start, int end) {
+        if (arr.length == 0){
+            return -1;
+        }
+        int max = arr[start];
+        for (int i = start; i <= end; i++) {
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+    
+    //find max in given arrays
+    static int maxElement(int[] arr) {
+      if (arr.length == 0){
+        return -1;
+    }
+        int max = 0;
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
