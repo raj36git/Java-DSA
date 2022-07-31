@@ -1,0 +1,36 @@
+https://leetcode.com/problems/find-numbers-with-even-number-of-digits/
+//code:-
+
+package com.rk.Java_Basics.LinearSearch;
+
+public class EvenNoDigits {
+    public static void main(String[] args) {
+        int[] arr = {5,23,65,7896};
+        int ans = findNumber(arr);
+        System.out.println(ans);
+    }
+    static int findNumber(int[] nums) {
+        int count = 0;
+        for (int num : nums) {
+            if (even(num)){
+                count++;
+            }
+        }
+        return count;
+    }
+    //find whether the number is even or odd
+    static boolean even(int nums){
+        int digits = noOfDigits(nums);
+
+        return digits % 2 == 0;
+    }
+    //find the no of digit first
+    static int noOfDigits(int nums) {
+        int count = 0;
+        while (nums > 0){
+            count++;
+            nums = nums / 10;
+        }
+        return count;
+    }
+}
