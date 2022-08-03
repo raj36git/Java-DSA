@@ -1,0 +1,37 @@
+package com.rk.Java_Basics.BinarySearch;
+//https://leetcode.com/problems/find-minimum-in-rotated-sorted-array/
+public class Min_RBS {
+    public static void main(String[] args) {
+        int[] arr = {3,4,5,0,1,2};
+        int ans = find(arr);
+        System.out.println(ans);
+    }
+    static int find(int[] arr){
+        int pivot = pivotIndex(arr);
+        if (pivot == -1){
+            return arr[0];
+        }
+        return arr[pivot + 1];
+    }
+    static int pivotIndex(int[] arr) {
+        int start = 0;
+        int end = arr.length-1;
+        while (start <= end){
+            int mid = start + (end - start) / 2;
+
+            //first condition
+            if (mid < end && arr[mid] > arr[mid+1]){
+                return mid;
+            } else if (mid > start && arr[mid] < arr[mid-1]){
+                return mid-1;
+            }
+            if (arr[start] > arr[mid]) {
+                end = mid - 1;
+            }
+            if (arr[start] <= arr[mid]){
+                start = mid + 1;
+            }
+        }
+        return -1;
+    }
+}
