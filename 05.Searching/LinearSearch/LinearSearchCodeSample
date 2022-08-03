@@ -1,0 +1,21 @@
+package com.rk.Java_Basics.LinearSearch;
+
+public class Linear {
+    public static void main(String[] args) {
+        int[] arr = {18,12,9,14,77,50};
+        int target = 5;
+        int ans = search(arr,target);
+        System.out.println(ans);
+    }
+    static int search(int[] arr, int target) {
+        if (arr.length == 0){
+            return -1;
+        }
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] == target){
+                return index;
+            }
+        }
+        return -1;
+    }
+}
