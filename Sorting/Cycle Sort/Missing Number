@@ -1,0 +1,40 @@
+package com.rk.Java_Basics.Sorting.CycleSort;
+
+import java.util.Arrays;
+
+//https://leetcode.com/problems/missing-number/
+public class MissingNumber {
+    public static void main(String[] args) {
+        int[] arr = {2,1,4,0};
+        missing(arr);
+        System.out.println(Arrays.toString(arr));
+        int ans = missing(arr);
+        System.out.println(ans);
+    }
+    static int missing(int[] arr) {
+        int i = 0;
+        while (i < arr.length){
+            //for range 0 to N
+            int correct = arr[i];
+            //for range 1 to N :- int correct = arr[i]-1;
+            if (arr[i] < arr.length && arr[i] != arr[correct]) {
+                swap(arr,i,correct);
+            } else {
+                i++;
+            }
+        }
+        //search for first missing number
+        for (int index = 0; index < arr.length; index++) {
+            if (arr[index] != index){
+                return index;
+            }
+        }
+        return arr.length;
+    }
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+
+}
