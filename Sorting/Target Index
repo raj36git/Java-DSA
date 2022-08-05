@@ -1,0 +1,29 @@
+//https://leetcode.com/problems/find-target-indices-after-sorting-array/
+
+class Solution {
+    public List<Integer> targetIndices(int[] nums, int target) {
+        boolean swapped;
+        for(int i = 0; i < nums.length; i++){
+            swapped = false;
+            for(int j = 1; j <= nums.length-i-1; j++){
+                //check first adjacent number is <,>
+                if(nums[j] < nums[j-1]){
+                    //swap
+                    int temp = nums[j];
+                    nums[j] = nums[j-1];
+                    nums[j-1] = temp;
+                    swapped = true;
+                }
+            }
+          if(!swapped)
+              break;
+        }
+        List<Integer> list = new ArrayList<>();
+        for(int index = 0; index < nums.length; index++){
+            if(nums[index] == target){
+                list.add(index);
+            }
+        }
+        return list;
+    }
+}
