@@ -1,5 +1,5 @@
 package com.rk.Java_Basics.BS_2D;
-
+//basic code of searching an element in row ans col wise sorted
 import java.util.Arrays;
 
 public class Search2D {
