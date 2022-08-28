@@ -1,6 +1,5 @@
-package com.rk.Java_Basics.BinarySearch;
-
 [LeetCode](https://leetcode.com/problems/search-insert-position/)
+package com.rk.Java_Basics.BinarySearch;
 
 public class CeilingNumber {
     public static void main(String[] args) {
