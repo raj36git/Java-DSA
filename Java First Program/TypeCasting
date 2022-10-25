@@ -1,0 +1,19 @@
+package com.rk.Basics;
+
+import java.util.Scanner;
+
+public class Typecasting {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        float num = sc.nextInt(); // this'll work cuz float is greater than int
+        //but not this
+     //   int mark = sc.nextFloat(); cuz, int < float
+
+        //typecasting = converting bigger number into smaller explicitly
+       // int num = 4.56f; -> wrong statement
+        int num1= (int)(4.56f);
+        System.out.println(num1); // this will only print int value i.e 4
+
+
+    }
+}
