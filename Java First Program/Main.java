@@ -15,6 +15,8 @@ public class Main {
  //   PRIMITIVE DATA TYPE
         int no = 2;
         char ch = 'a';
+        short a = 112;
+        byte v = 2;
         float marks = 28.33f;
         double largedecimal = 7632452173.78346;
         long largeint = 8734628;
