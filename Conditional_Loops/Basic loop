@@ -1,0 +1,36 @@
+package com.rk.Basics.Condition;
+import java.util.Scanner;
+public class Cond_Loop {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int salary = sc.nextInt();
+
+//      IF-ELSE STATEMENT
+        /*
+        IF(condition){
+        body..
+        }
+          else{
+          body...
+        }
+         */
+
+        if (salary > 23000){
+            salary = salary + 5000;
+        } else {
+            salary = salary + 10000;
+        }
+        System.out.println(salary);
+
+ //    FOR-LOOP
+       /*
+        for (initialization; condition; increment++/decrement--){
+        //body
+        }
+        */
+           //Print number from 1 to 5
+        for (int i = 1; i <= 5 ; i++) {
+            System.out.println(i);
+        }
+    }
+}
