@@ -1,0 +1,40 @@
+package com.rk.Basics.Condition;
+import java.util.Scanner;
+public class Conditional {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        //ODDorEVEN
+        int num = sc.nextInt();
+        if (num>0 && num%2==0){
+            System.out.println("Even");
+        } else if (num!=0 && num>0){
+            System.out.println("Odd");
+        } else {
+            System.out.println("Enter Valid Number");
+        }
+
+        //ternary operator = (condition) ? ans1 : ans2
+        //example
+        int num1 = sc.nextInt();
+        String ans = (num1 % 2 == 0) ? "even" : "odd";
+        System.out.println(ans);
+
+        //WRITE A PROGRAM TO PRINT A VALUE IF IT IS EVEN AND DIVISIBLE BY 3
+        int num3 = sc.nextInt();
+        if (num3%2==0 && num3%3==0){
+            System.out.println("yes");
+        } else {
+            System.out.println("not");
+        }
+
+        //  WRITE A PROGRAM TO PRINT A VALUE IF IT IS DIVISIBLE BY 3 or 5
+         if (num%3==0 || num%5==0){
+             System.out.println("yes it is");
+         }
+
+         //Using trinary
+        String ans1 = (num3%3==0 || num3%5==0) ? "yes it is" : "not";
+        System.out.println(ans1);
+    }
+}
