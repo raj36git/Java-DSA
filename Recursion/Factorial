@@ -1,0 +1,21 @@
+package Recursion;
+
+public class Factorial {
+    public static void main(String[] args) {
+        int n = 5;
+        System.out.println(facto(n));
+    }
+     static int facto(int n){
+        //base condition
+        if (n == 0) {
+           return 1;
+        }
+         //recursive-work
+         return n * facto(n-1);
+//         int smallAns = facto(n-1);
+//         //self-work
+//        int ans = n*smallAns;
+//
+//        return ans;
+    } 
+}
