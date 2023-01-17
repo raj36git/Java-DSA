@@ -1,0 +1,21 @@
+package Recursion;
+
+public class Decreasing {
+    public static void main(String[] args) {
+        int n = 5;
+        printDecreasing(n);
+    }
+    static  void printDecreasing(int n) {
+        //base condition
+        if (n==1){
+            System.out.println(1);
+            return;
+        }
+        //self-work
+        System.out.println(n);
+
+        //recursive-work
+        printDecreasing(n-1);
+
+    }
+}
