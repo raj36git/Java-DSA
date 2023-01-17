@@ -1,0 +1,31 @@
+package Recursion;
+
+public class Fibonacci {
+    public static void main(String[] args) {
+        //print fibonacci number series
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(fiboNumber(i));
+        }
+        //print nth fibonacci number
+        System.out.println(fiboNumber(5));
+    }
+    static int fiboNumber(int n){
+        //base case
+        if (n==0 || n==1){
+            return n;
+        }
+        //recursive work
+       return fiboNumber(n-1) + fiboNumber(n-2);
+
+
+        //for beginner to understand this problem
+//
+//         //recursive work
+//        int prevProblem = fiboNumber(n-1);
+//        int prevPrevProblem =  fiboNumber(n-2);
+//
+//        //self work
+//        int ans =  prevProblem + prevPrevProblem;
+//        return ans;
+    }
+}
