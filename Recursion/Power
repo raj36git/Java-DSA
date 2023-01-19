@@ -1,0 +1,39 @@
+package Recursion;
+
+public class Power {
+    public static void main(String[] args) {
+        int p = 2;
+        int q = 4;
+        System.out.println(pow(p,q));
+    }
+    static int pow(int p, int q) {
+        //base case
+        if (q == 0){
+            return 1;
+        }
+//        recursive work
+//        int smallAns = pow(p,q-1);
+////        self work
+//         int ans = smallAns * p;
+//         return ans;
+
+        //short form-code
+ //        return pow(p,q-1) * p;
+
+//        other way
+        //recursive work
+        int smallAns = pow(p,q/2);
+        
+        if (q%2==0){
+        //    int smallAns = pow(p,q/2);
+              //self work
+            return smallAns * smallAns;
+         //   return pow(p,q/2) * pow(p,q/2);
+        } else{  //this else is optional
+         //   int smallAns = pow(p,q/2);
+            //self work
+            return p * smallAns * smallAns;
+          //  return p * pow(p,q/2) * pow(p,q/2);
+        }
+    }
+}
