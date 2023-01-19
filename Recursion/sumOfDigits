@@ -1,0 +1,25 @@
+package Recursion;
+
+public class SOD {
+    public static void main(String[] args) {
+        int n = 5435;
+        System.out.println(sumOfDigits(n));
+    }
+    static int sumOfDigits(int n) {
+        //base case
+        if (n>=0 && n<=9){
+            return n;
+        }
+        //recursive work
+//        int smallAns = sumOfDigits(n/10);
+//        int lastDigits = n % 10;
+//
+//        //self-work
+//        int ans = smallAns + lastDigits;
+//
+//        return ans;
+
+        //short form-code
+        return sumOfDigits(n/10) + n%10;
+    }
+}
