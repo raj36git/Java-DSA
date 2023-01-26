@@ -1,0 +1,26 @@
+package Recursion;
+
+public class GCD {
+    public static void main(String[] args) {
+        int a = 12;
+        int b = 16;
+        System.out.println(gcd(a,b));
+        System.out.println(iGCD(a,b));
+    }
+    static int gcd(int a, int b) {
+        //base case
+        if (b==0){
+            return a;
+        }
+        //recursive work
+        return gcd(b, a%b);
+    }
+    static int iGCD(int a, int b){
+       while (a%b!=0){
+           int rem = a % b;
+           a = b;
+           b = rem;
+       }
+       return b;
+    }
+}
