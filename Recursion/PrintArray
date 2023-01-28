@@ -1,0 +1,19 @@
+package Recursion;
+
+public class PrintArray {
+    public static void main(String[] args) {
+        int[] arr = {3,5,78,2};
+        print(arr,0);
+    }
+    static void print(int[] arr, int index){
+        int n = arr.length;
+        //base case
+        if (index == n) return;
+
+        //self work
+        System.out.print(arr[index] + " ");
+
+        //smaller problem / recursive work
+        print(arr, index+1);
+    }
+}
