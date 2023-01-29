@@ -1,0 +1,17 @@
+package Recursion;
+
+public class MaxArray {
+    public static void main(String[] args) {
+        int[] arr = {95,53,18,4,89};
+        System.out.println(max(arr,0));
+    }
+    static int max(int[] arr, int index){
+        //base case
+        if (index == arr.length-1){
+            return arr[index];
+        }
+        int smallAns = max(arr, index+1);
+
+        return Math.max(arr[index], smallAns);
+    }
+}
