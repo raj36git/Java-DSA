@@ -1,0 +1,19 @@
+package Recursion;
+
+public class SumOfArray {
+    public static void main(String[] args) {
+        int[] arr = {};
+        System.out.println(sumArr(arr,0));
+    }
+    static int sumArr(int[] arr, int i){
+        //base case
+        if (i == arr.length){
+            return 0;
+        }
+        //recursive work
+        int smallAns = sumArr(arr, i+1);
+
+        //self work
+        return arr[i] + smallAns;
+    }
+}
