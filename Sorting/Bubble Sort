@@ -23,7 +23,7 @@ public class Bubble {
                 }
             }
             if (!swapped)
-                break;;
+                break;
         }
     }
 }
