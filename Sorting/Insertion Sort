@@ -1,20 +1,20 @@
-package com.rk.Java_Basics.Sorting;
+package Sorting;
 
 import java.util.Arrays;
 
 public class InsertionSort {
     public static void main(String[] args) {
-        int[] arr = {4,2,1,5,3};
+        int[] arr = {3,5,2,1,4};
         insertion(arr);
         System.out.println(Arrays.toString(arr));
     }
     static void insertion(int[] arr) {
-        for (int i = 0; i < arr.length-1; i++) {
+        for (int i = 0; i <= arr.length-2; i++) {
             for (int j = i+1; j > 0; j--) {
-                //check whether j < j-1 or not
-                //if yes, swap
                 if (arr[j] < arr[j-1]){
-                    swap(arr, j, j-1);
+                    //check whether j < j-1 or not
+                    //if yes, swap
+                    swap(arr,j,j-1);
                 } else {
                     break;
                 }
@@ -27,3 +27,4 @@ public class InsertionSort {
         arr[second] = temp;
     }
 }
+
