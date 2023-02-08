@@ -1,28 +1,30 @@
-package com.rk.Java_Basics.Sorting.CycleSort;
+package Sorting;
 
 import java.util.Arrays;
 
-public class Cyclic {
+public class CycleSort {
     public static void main(String[] args) {
-        int[] arr = {4,2,1,5,3};
-        cycleSorting(arr);
+        int[] arr = {3,2,4,5,1};
+        cycle(arr);
         System.out.println(Arrays.toString(arr));
+        
     }
-    static void cycleSorting(int[] arr) {
+    static void cycle(int[] arr){
         int i = 0;
-        while (i < arr.length){
-            int correct = arr[i] - 1;
-            if (arr[correct] != arr[i]) {
-                swap(arr, correct, i);
+        while (i<arr.length){
+            int correct = arr[i]-1;           //if arr range is [0-n], int correct = arr[i]
+            if (arr[correct] != arr[i]){      //if element isn't at correct index, swap with it correct index
+                //swap
+                swap(arr,correct,i);
             } else {
                 i++;
             }
         }
 
     }
-        static void swap(int[] arr, int first, int second) {
-            int temp = arr[first];
-            arr[first] = arr[second];
-            arr[second] = temp;
-        }
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
 }
