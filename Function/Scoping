@@ -1,0 +1,26 @@
+package JAVA.Function;
+
+public class Scope {
+    public static void main(String[] args) {
+       block1();
+       block2();
+    }
+    int a = 222;
+    int b = 672;
+    static void block1(){
+        int a = 22;
+        System.out.println(a); //22 -> block level scope
+      //  System.out.println(b); //can't access here
+        for (int i = 0; i < 5; i++) {
+            System.out.println(i);
+         //   System.out.println(a);
+        //    System.out.println(b); //can't accessed -> b is in other block
+        }
+    }
+    static void block2(){
+        int a = 33;
+        int b = 2;
+        System.out.println(a); //can't access here-> block level
+        System.out.println(b); //22 -> block level scope
+    }
+}
