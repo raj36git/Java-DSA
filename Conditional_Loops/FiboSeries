@@ -1,0 +1,26 @@
+package JAVA.Conditional;
+
+import java.util.Scanner;
+
+public class FiboSeries {
+    public static void main(String[] args) {
+        System.out.print("Enter n: ");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+           int a = 0;
+        System.out.print(" "+a);
+           int b  = 1;
+        System.out.print(" "+b);
+
+        for (int i = 2; i < n; i++) {
+//            int temp = b;
+//            b = a+ b;
+//            a = temp;
+            int temp = a;
+            a = b;
+            b = a + temp;
+           System.out.print(" "+b); //to print fibo number series
+        }
+    //  System.out.println(b); //to print nth fibo number
+    }
+}
