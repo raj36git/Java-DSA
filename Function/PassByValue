@@ -1,0 +1,17 @@
+package JAVA.Function;
+
+public class PassByValue {
+    public static void main(String[] args) {
+        int a  = 3;
+        System.out.println(a);
+        changeValue(a);
+        System.out.println(a);
+     //   System.out.println(b);
+    }
+    static void changeValue(int a){
+        a  += 33;
+        int b  =8;
+        System.out.println(a);
+        System.out.println(b);
+    }
+}
