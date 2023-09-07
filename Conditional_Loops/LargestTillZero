@@ -1,0 +1,23 @@
+package JAVA.Conditional;
+
+import java.util.Scanner;
+
+public class LargestTillZero {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int n;
+        int largest = Integer.MIN_VALUE;
+
+        System.out.println("Enter n: ");
+        n = sc.nextInt();
+        while (n != 0){
+           if (n > largest){
+            largest = n;
+
+            System.out.println("Enter n: ");
+            n = sc.nextInt();
+           }
+        }
+        System.out.println("Largest Value is: "+largest);
+    }
+}
