@@ -1,0 +1,24 @@
+package JAVA.Conditional;
+
+import java.util.Scanner;
+
+public class Subtract_Product_Sum {
+    public static void main(String[] args) {
+        System.out.print("Enter num: ");
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+
+        int product = 1;
+        int sum  = 0;
+        while (num>0){
+            int rem = num%10;
+            num = num/10;
+            product = product*rem;
+            sum = sum + rem;
+        }
+        System.out.println("Product: "+product);
+        System.out.println("Sum: "+sum);
+        int result = product-sum;
+        System.out.println("Difference Result: "+result);
+    }
+}
