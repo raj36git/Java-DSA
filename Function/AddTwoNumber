@@ -1,0 +1,18 @@
+package JAVA.Function;
+
+import java.util.Scanner;
+
+public class Addition {
+    public static void main(String[] args) {
+        int result = add();
+        System.out.println(result);
+    }
+    static int add(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter two Number: ");
+        int a = sc.nextInt();
+        int b = sc.nextInt();
+
+        return a+b;
+    }
+}
