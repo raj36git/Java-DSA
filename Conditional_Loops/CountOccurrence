@@ -1,0 +1,23 @@
+package JAVA.Conditional;
+
+import java.util.Scanner;
+
+public class Occurrence {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter num: ");
+        int num = sc.nextInt();
+        System.out.println("Enter target: ");
+        int target = sc.nextInt();
+
+        int count  = 0;
+        while (num>0){
+            int rem = num%10;
+            num /= 10;
+            if (rem == target){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
