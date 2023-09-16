@@ -1,0 +1,50 @@
+package Arrays;
+
+public class PeakElement {
+    public static void main(String[] args) {
+//        int[] arr = {8,9,10,2,7,4}; //10
+//        int[] arr = {8,9,10,2,7}; //7
+//        int[] arr = {8,3,10,2,7,4}; //8
+        int[] arr = {8}; //8
+//        int ans = peak(arr);
+        int ans = peakElement(arr);
+        System.out.println(ans);
+    }
+//    Optimized Solution
+//    static int peak(int[] arr) {
+//
+//        int start = 0;
+//        int end = arr.length-1;
+//        while (start < end){
+//            int mid = start + (end - start) / 2;
+//
+//            if (arr[mid] < arr[mid+1]){
+//                start = mid + 1;
+//            } else {
+//                end = mid;
+//            }
+//        }
+//        return arr[end]; //start
+//    }
+
+    //BruteForce Solution
+    static int peakElement(int[] arr)
+    {
+        if (arr.length == 1){
+            return arr[0];
+        }
+        if(arr[0] > arr[1]){
+            return arr[0];
+        }
+        if(arr[arr.length-1] > arr[arr.length-2]){
+            return arr[arr.length-1];
+        } else{
+            for(int i=1; i<arr.length; i++){
+                if(arr[i]>arr[i-1] && arr[i]>arr[i+1]){
+                    return arr[i];
+                }
+            }
+        }
+        return 0;
+    }
+}
