@@ -1,0 +1,25 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class WaveForm {
+    public static void main(String[] args) {
+        int[] arr = {5,1,2,3,8,9,7};
+        waveArray(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+
+     static void waveArray(int[] arr) {
+         for (int i = 1; i < arr.length; i+=2) {
+             if (arr[i] < arr[i-1]){
+                 swap(arr,i,i-1);
+             }
+         }
+    }
+
+    static void swap(int[] arr, int first, int second) {
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+}
