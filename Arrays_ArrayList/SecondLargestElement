@@ -1,0 +1,34 @@
+package Arrays;
+
+public class SecondLargestElement {
+    public static void main(String[] args) {
+        int[] arr = {4,4,4,2,4};
+        int ans  = findSecondMax(arr);
+        System.out.println(ans);
+    }
+    static int findSecondMax(int[] arr){
+        int max = findFirstMax(arr);
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == max){
+                arr[i] = Integer.MIN_VALUE;
+            }
+        }
+        int secondMax =  findFirstMax(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (secondMax == Integer.MIN_VALUE){
+                return -1;
+            }
+        }
+        return secondMax;
+    }
+    static int findFirstMax(int[] arr){
+        int max = Integer.MIN_VALUE;
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > max){
+                max = arr[i];
+            }
+        }
+        return max;
+    }
+}
