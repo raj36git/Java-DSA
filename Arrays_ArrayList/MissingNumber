@@ -1,0 +1,33 @@
+package Arrays;
+
+public class MissingNumber {
+    public static void main(String[] args) {
+        int[] arr = {1};
+        int ans = missingNum(arr);
+        System.out.println(ans);
+
+    }
+    static int missingNum(int[] arr){
+        sorting(arr);
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] != i+1){
+                return i+1;
+            }
+        }
+        return arr.length+1;
+    }
+    static void sorting(int[] arr) {
+        for (int i = 0; i < arr.length; i++) {
+            for (int j = 0; j < arr.length-1; j++) {
+                if (arr[j] > arr[j+1]) {
+                    swap(arr, j, j+1);
+                }
+            }
+        }
+    }
+    static void swap(int[] arr, int first, int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+}
