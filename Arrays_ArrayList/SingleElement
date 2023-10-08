@@ -1,0 +1,30 @@
+package Arrays;
+
+public class SingleElement {
+    public static void main(String[] args) {
+        int[] arr = {1,11,1,1};
+
+        int ans = singleElement(arr);
+    }
+    static int singleElement(int[] arr) {
+        int N = arr.length;
+        int ans = Integer.MIN_VALUE;
+        for (int i = 0; i < N; i++) {
+            for (int j = i+1; j < N; j++) {
+                for(int k = j+1; k < N; k++){
+                if (arr[i] == arr[j] && arr[i] == arr[k]){
+                    arr[i] = ans;
+                    arr[j] = ans;
+                    arr[k] = ans;
+                }
+              }
+            }
+        }
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] > ans){
+                ans = arr[i];
+            }
+        }
+        return ans;
+    }
+}
