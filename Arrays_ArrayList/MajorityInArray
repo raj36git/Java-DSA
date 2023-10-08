@@ -1,0 +1,44 @@
+package Arrays;
+
+public class MajorityInArray {
+    public static void main(String[] args) {
+        int[] arr = {1, 3, 2, 3, 4, 3};
+        int ans = majorityElement(arr);
+        System.out.println(ans);
+    }
+
+    static int majorityElement(int[] arr) {
+        int count = 1;
+        int majorityElement = arr[0];
+
+        for (int i = 1; i < arr.length; i++) {
+            if (arr[i] == majorityElement) {
+                count++;
+            } else {
+                count--;
+            }
+
+            if (count == 0) {
+                majorityElement = arr[i];
+                count = 1;
+            }
+        }
+
+        // At this point, majorityElement might be the majority element,
+        // but you should perform an additional check to confirm.
+
+        count = 0;
+        for (int element : arr) {
+            if (element == majorityElement) {
+                count++;
+            }
+        }
+
+        if (count > arr.length / 2) {
+            return majorityElement;
+        }
+
+        return -1; // No majority element found
+    }
+}
+
