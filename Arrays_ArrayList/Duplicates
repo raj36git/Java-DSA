@@ -1,0 +1,22 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class Duplicates {
+    public static void main(String[] args) {
+        int[] arr = {5,2,4,3,1};
+        int n = arr.length;
+        int ans = duplicateNum(arr,n);
+        System.out.println(ans);
+    }
+    static int duplicateNum(int[] arr, int n){ //to return array, return using ArrayList
+        Arrays.sort(arr); //sort the array first and search for duplicates
+        n = arr.length;
+        for (int i = 0; i < n-1; i++) {
+                if (arr[i] != i+1){
+                    return arr[i];
+            }
+        }
+        return -1;
+    }
+}
