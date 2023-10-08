@@ -1,0 +1,35 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class EvenAtStarting {
+    public static void main(String[] args) {
+        int[] arr = {3,6,2,6,8,3,4,9,1};
+        rearrangeEvenOdd(arr);
+        System.out.println(Arrays.toString(arr));
+    }
+    static void rearrangeEvenOdd(int[] arr){
+        int left = 0;
+        int right = arr.length-1;
+
+        while (left < right){
+            if (arr[left] % 2 == 0){
+                left++;
+            }
+            if (arr[right] % 2 == 1){
+                right--;
+            }
+            if (arr[left] % 2 == 1 && arr[right] % 2 == 0) {
+                swap(arr, left, right);
+                left++;
+                right--;
+            }
+
+        }
+    }
+    static void swap(int[] arr, int first, int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+}
