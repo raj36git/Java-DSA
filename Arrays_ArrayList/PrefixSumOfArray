@@ -1,0 +1,33 @@
+package Arrays;
+
+import java.util.Arrays;
+
+public class PrefixSumOfArray {
+    public static void main(String[] args) {
+        int[] arr = {2,0,3,4,5};
+//        int[] pref = prefixSum(arr);
+//        System.out.println(Arrays.toString(pref));
+
+        int[] prefixSum = prefixSumWoutExtraSpace(arr);
+        System.out.println(Arrays.toString(prefixSum));
+    }
+    static int[] prefixSumWoutExtraSpace(int[] arr){
+        int n = arr.length;
+        for (int i = 1; i < n; i++) {
+            arr[i] = arr[i-1] + arr[i];
+        }
+        return arr;
+    }
+//    static int[] prefixSum(int[] arr){
+//        int n = arr.length;
+//        int[] pref = new int[n];
+//        pref[0] = arr[0];
+//
+//        for (int i = 1; i < n; i++) {
+//            pref[i] = pref[i-1] + arr[i];
+//
+//        }
+//        return pref;
+//    }
+
+}
