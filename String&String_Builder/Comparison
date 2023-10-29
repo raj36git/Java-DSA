@@ -1,0 +1,15 @@
+package Strings;
+
+public class Comparison {
+    public static void main(String[] args) {
+        String a  = new String("Razz");
+        String b = new String("Razz");
+        //these both created outside pool but in heap memory
+
+//        System.out.println(a==b); //comparator
+        System.out.println(a.equals(b)); //method->to check only value
+
+
+        System.out.println(a.charAt(0));
+    }
+}
