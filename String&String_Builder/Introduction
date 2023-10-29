@@ -1,1 +1,12 @@
-Strings and strings Builder startting here
+package Strings;
+
+public class Introduction {
+    public static void main(String[] args) {
+        String name = "Razz Yadav";
+        System.out.println(name);
+
+        String a = "Razz";
+        System.out.println(a);
+        a = "Yadav"; //not changing 'a' but creating another one
+        System.out.println(a);
+    }
