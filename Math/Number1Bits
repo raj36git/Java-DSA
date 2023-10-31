@@ -1,0 +1,20 @@
+package MathForDSA;
+
+//LeetCode191
+
+public class Number1Bits {
+    public static void main(String[] args) {
+        int num = 1010000001;
+        System.out.println(number1Bit(num));
+    }
+    static int number1Bit(int num){
+        int count = 0;
+        while (num>0){
+            if ((num & 1)==1){
+                count++;
+            }
+            num = num>>1; //if this giving TLE use >>>
+        }
+        return count;
+    }
+}
