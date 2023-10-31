@@ -1,0 +1,20 @@
+package MathForDSA;
+//https://leetcode.com/problems/reverse-integer/description/
+public class ReverseNumber {
+    public static void main(String[] args) {
+        int num = 123;
+        System.out.println(reverse(num));
+    }
+    static int reverse(int n) {
+        int sum = 0;
+        while (n!=0) {
+            int rem = n % 10;
+            if(sum >Integer.MAX_VALUE/10 || sum < Integer.MIN_VALUE/10){
+                return 0;
+            }
+            sum = (sum * 10) + rem;
+            n = n / 10;
+        }
+        return sum;
+    }
+}
