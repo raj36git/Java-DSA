@@ -1,0 +1,18 @@
+package MathForDSA;
+
+public class BitwiseOperator {
+    public static void main(String[] args) {
+        int a = 4; //0100
+        int b = 6; //0110
+        System.out.println(a&b); //0100->4
+        System.out.println(a|b); //0110 ->6
+        System.out.println(a^b); //2
+        System.out.println(~a);  //-5
+        System.out.println(~b);  //-7
+
+        System.out.println(17>>1); //8
+        System.out.println(17>>2); //4
+        System.out.println(19<<1); //38
+        System.out.println(19<<2); //76
+    }
+}
