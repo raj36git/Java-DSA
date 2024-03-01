@@ -1,0 +1,21 @@
+//Question Link: https://www.geeksforgeeks.org/problems/peak-element/1?utm_source=geeksforgeeks&utm_medium=newui_home&utm_campaign=potd
+
+class Solution
+{
+	public int peakElement(int[] arr,int n)
+    {
+       int left = 0;
+        int right = arr.length - 1;
+        
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            if (arr[mid] > arr[mid + 1]) {
+                right = mid;
+            } else {
+                left = mid + 1;
+            }
+        }
+        
+        return left;
+    }
+}
