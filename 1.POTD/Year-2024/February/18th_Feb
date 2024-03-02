@@ -1,0 +1,28 @@
+//Question Link: https://www.geeksforgeeks.org/problems/sum-of-leaf-nodes-in-bst/1
+
+//Java Code
+class Solution
+{
+    public static int sumOfLeafNodes(Node root)
+    {
+        if (root == null) {
+            return 0;
+        } else if (root.left == null && root.right == null) {
+            return root.data; // Leaf node
+        } else {
+            return sumOfLeafNodes(root.left) + sumOfLeafNodes(root.right);
+        }
+    }
+     public static Node insert(Node node, int data) {
+        if (node == null) {
+            return new Node(data);
+        } else {
+            if (data <= node.data) {
+                node.left = insert(node.left, data);
+            } else {
+                node.right = insert(node.right, data);
+            }
+            return node;
+        }
+    }
+}
