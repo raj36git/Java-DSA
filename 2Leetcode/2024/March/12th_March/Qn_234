@@ -1,0 +1,65 @@
+//Question Link: https://leetcode.com/problems/palindrome-linked-list/description/
+
+//Java Code
+
+//OPTIMIZED CODE
+class Solution {
+    public boolean isPalindrome(ListNode head) {
+        if(head == null || head.next == null) return true;
+
+        ListNode slow = head;
+        ListNode fast = head;
+         //FIND FIRST MIDDLE
+        while(fast.next != null && fast.next.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+         //REVERSE SECOND PART
+          ListNode newHead = reverseList(slow.next);
+         //COMPARISION
+          ListNode first = head;
+          ListNode second = newHead;
+
+        while(second != null){
+            if(first.val != second.val){
+                reverseList(newHead);
+                return false;
+            } else{
+                first = first.next;
+                second = second.next;
+            }
+        }      
+            reverseList(newHead);
+            return true;
+    }
+   public ListNode reverseList(ListNode head) {
+        if(head == null || head.next == null) return head;
+
+        ListNode newHead = reverseList(head.next);
+
+        ListNode front = head.next;
+        front.next = head;
+        head.next = null;
+        
+        return newHead;
+    }
+}
+
+//BRUTE FORCE WAY        
+        Stack<Integer> st = new Stack<>();
+        ListNode temp = head;
+
+        while(temp != null){
+            st.push(temp.val);
+            temp = temp.next;
+        }
+
+        temp = head;
+        while(temp != null){
+            if(st.peek() != temp.val) {
+                return false;
+            }
+            temp = temp.next;
+            st.pop();
+        }
+        return true;
