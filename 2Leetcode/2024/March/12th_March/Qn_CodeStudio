@@ -1,0 +1,49 @@
+//Qustion Link: https://www.codingninjas.com/studio/problems/add-one-to-a-number-represented-as-linked-list_920557?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+
+
+//Java Code
+
+public class Solution {
+	public static Node addOne(Node head) {
+		if(head == null){
+			 head.data = 1;
+			return head;
+		}
+		head = reverse(head);
+
+		Node temp = head;
+		int carry = 1;
+		while(temp != null){
+			temp.data = carry+temp.data;
+			if(temp.data < 10){
+				carry = 0;
+				break;
+			} else{
+			temp.data = 0;
+			carry = 1;
+			temp = temp.next;
+			}
+		}
+		head = reverse(head);
+
+		if(carry == 1){
+			Node node = new Node(carry);
+			node.next = head;
+			head = node;
+		}
+
+		return head;
+
+	}
+
+	public static Node reverse(Node head){
+		if(head == null || head.next == null) return head;
+
+		Node newHead = reverse(head.next);
+		Node front = head.next;
+		front.next = head;
+		head.next = null;
+
+		return newHead;
+	}
+}
