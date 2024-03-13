@@ -1,0 +1,28 @@
+//QuestionLink: https://www.codingninjas.com/studio/problems/find-length-of-loop_8160455?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf
+//Find length of Loop:
+//Java code
+
+public class Solution
+{
+    public static int lengthOfLoop(Node head) {
+        Node slow = head;
+        Node fast = head;
+
+        while(fast != null && fast.next != null){
+            slow = slow.next;
+            fast = fast.next.next;
+            if(fast == slow) return findLength(slow,fast);  
+        }
+        return 0;
+    }
+    public static int findLength(Node slow, Node fast){
+        int count = 1;
+        fast = fast.next;
+        while(fast != slow){
+             count = count + 1;
+            fast = fast.next;
+           
+        }
+        return count;
+    }
+}
