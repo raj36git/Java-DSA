@@ -1,1 +1,16 @@
-jd
+//QuestionLink: https://leetcode.com/problems/minimum-bit-flips-to-convert-number/description/
+
+//Java Code
+
+class Solution {
+    public int minBitFlips(int start, int goal) {
+        int op = start ^ goal; //op => operation ^
+
+        int count = 0;
+        while(op != 0){
+            op = op & (op-1);
+            count++;
+        }
+        return count;
+    }
+}
