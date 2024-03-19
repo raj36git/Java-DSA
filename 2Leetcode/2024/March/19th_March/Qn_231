@@ -1,0 +1,14 @@
+//QuestionLink: https://leetcode.com/problems/power-of-two/description/
+
+//Java Code
+
+class Solution {
+    public boolean isPowerOfTwo(int n) {
+        if(n <= 0) return false;
+
+        int b = n-1;
+        if((n & b )== 0) return true;
+
+        return false;
+    }
+}
