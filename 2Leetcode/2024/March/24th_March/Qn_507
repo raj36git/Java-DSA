@@ -1,0 +1,18 @@
+//QuestionLink: https://leetcode.com/problems/perfect-number/description/
+
+//JavaCode:
+
+class Solution {
+    public boolean checkPerfectNumber(int n) {
+      if(n == 1) return false;
+      int sum = 1;
+      for (int i = 2; i*i<=n; i++) {
+          if (n % i == 0) {
+              sum = sum + i;
+              sum = sum + (n / i); 
+          }
+      }
+        if(sum == n) return true;
+        return false;
+    }
+}
