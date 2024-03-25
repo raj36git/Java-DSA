@@ -1,0 +1,41 @@
+//QuestionLink: https://leetcode.com/problems/next-permutation/description/
+
+//Java Code:
+
+class Solution {
+    public void nextPermutation(int[] nums) {
+        int prev=-1, next=0;
+        for(int i=nums.length-2;i>=0;i--){
+            if(nums[i]<nums[i+1]){
+                prev=i;
+                break;
+            }
+        }
+        if(prev==-1){
+            reverse(nums,0,nums.length-1);
+            return;
+        }
+        for(int i=nums.length-1;i>prev;i--){
+            if(nums[prev]<nums[i]){
+                next=i;
+                break;
+            }
+        }
+        swap(nums,prev,next);
+        reverse(nums,prev+1,nums.length-1);
+    }
+
+    public void reverse(int[] arr,int first,int second){
+        while(first<second){
+            swap(arr,first,second);
+            first++;
+            second--;
+        }
+    }
+    
+    public void swap(int[] arr,int first,int second){
+        int temp = arr[first];
+        arr[first] = arr[second];
+        arr[second] = temp;
+    }
+}
