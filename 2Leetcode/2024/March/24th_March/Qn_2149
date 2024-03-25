@@ -1,0 +1,22 @@
+//QuestionLink: https://leetcode.com/problems/rearrange-array-elements-by-sign/description/
+
+//JavaCode:
+
+class Solution {
+    public int[] rearrangeArray(int[] nums) {
+      int n = nums.length;
+      int pos = 0, neg = 1;
+      int[] newArr  = new int[n];
+        for(int i=0; i< nums.length; i++){
+          if(nums[i] > 0){
+            newArr[pos] = nums[i];
+            pos = pos + 2;
+          }
+          else{
+             newArr[neg] = nums[i];
+            neg = neg + 2;
+          }
+        }
+        return newArr;
+    }
+}
