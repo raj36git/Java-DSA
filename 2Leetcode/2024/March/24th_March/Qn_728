@@ -1,0 +1,27 @@
+//QuestionLink: https://leetcode.com/problems/self-dividing-numbers/description/
+
+//JavaCode
+
+class Solution {
+    public List<Integer> selfDividingNumbers(int left, int right) {
+        List<Integer> list = new ArrayList<>();
+        for (int i = left; i <= right; i++) {
+            boolean checkDivide = checkSelf(i);
+            if (checkDivide){
+                list.add(i);
+            }
+        }
+        return list;
+    }
+    public boolean checkSelf(int num){
+      int originalNum = num;
+        while (num != 0) {
+            int rem = num % 10;
+            if (rem == 0 || originalNum % rem != 0) {
+                return false;
+            }
+            num = num / 10;
+        }
+        return true;
+    }
+}
