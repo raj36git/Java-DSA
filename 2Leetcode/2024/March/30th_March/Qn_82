@@ -1,0 +1,26 @@
+//QuestionLink:  https://leetcode.com/problems/remove-duplicates-from-sorted-list-ii/description/
+
+//Java code:
+
+class Solution {
+    public ListNode deleteDuplicates(ListNode head) {
+        ListNode dummy = new ListNode(0,head);
+        ListNode prev = dummy;
+         ListNode curr = head;
+
+         while(curr != null && curr.next != null){
+          if(curr.val != curr.next.val){
+            prev = prev.next;
+            // curr = curr.next;
+          } else{
+            while(curr.next != null && curr.val == curr.next.val){
+              curr = curr.next;
+            }
+            prev.next = curr.next;
+            // curr = curr.next;
+          }
+          curr = curr.next; //instead of writing two time, we can write it once
+        }
+        return dummy.next;
+    }
+}
