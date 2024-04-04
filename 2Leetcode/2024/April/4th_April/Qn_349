@@ -1,0 +1,33 @@
+//QuestionLink:  https://leetcode.com/problems/intersection-of-two-arrays/description/
+
+//JavaCode:
+
+class Solution {
+    public int[] intersection(int[] nums1, int[] nums2) {
+        
+
+        HashSet<Integer> set = new HashSet<>();
+
+
+          //add in set to remove duplicate
+        for(int i=0; i<nums1.length; i++){
+          set.add(nums1[i]);
+        }
+        //check for intersection
+
+        List<Integer> list = new ArrayList<>();
+        for(int val : nums2){
+           if(set.contains(val)){
+            list.add(val);
+            set.remove(val);
+          }
+        }
+        
+        int[] nums = new int[list.size()];
+        for (int i = 0; i < list.size(); i++) {
+            nums[i] = list.get(i);
+        }
+
+        return nums;
+    }
+}
