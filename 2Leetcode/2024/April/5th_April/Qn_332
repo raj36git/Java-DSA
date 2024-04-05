@@ -1,0 +1,32 @@
+//QuestionLink:  https://leetcode.com/problems/reconstruct-itinerary/description/
+
+//javaCode:
+
+class Solution {
+    public List<String> findItinerary(List<List<String>> tickets) {
+         Map<String, List<String>> map = new HashMap<>();
+        for (List<String> ticket : tickets) {
+            String origin = ticket.get(0);
+            String dest = ticket.get(1);
+            
+            map.computeIfAbsent(origin, (k) -> new ArrayList<>()).add(dest);
+        }
+        map.forEach((o, d) -> Collections.sort(d, Collections.reverseOrder()));
+        
+        List<String> itinerary = new ArrayList<>();
+        topologicalSort(map, "JFK", itinerary);
+        
+        Collections.reverse(itinerary);
+        return itinerary;
+    }
+    
+    private void topologicalSort(Map<String, List<String>> map, String origin, List<String> itinerary) {
+        if (map.containsKey(origin)) {
+            List<String> dest = map.get(origin);
+            while (!dest.isEmpty()) {
+                topologicalSort(map, dest.remove(dest.size() - 1), itinerary);
+            }
+        }
+        itinerary.add(origin);
+    }
+}
