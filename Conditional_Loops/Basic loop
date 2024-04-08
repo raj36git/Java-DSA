@@ -22,7 +22,7 @@ public class Cond_Loop {
         }
         System.out.println(salary);
 
- //    FOR-LOOP
+ //    FOR-LOOP: 
        /*
         for (initialization; condition; increment++/decrement--){
         //body
