@@ -1,0 +1,25 @@
+//Question Link:  https://leetcode.com/problems/swap-nodes-in-pairs/description/
+
+//Java Code: 
+class Solution {
+    public ListNode swapPairs(ListNode head) {
+        ListNode dummy = new ListNode(0,head); //to take care of head
+        ListNode temp = dummy; //to traverse
+
+        while(temp.next != null && temp.next.next != null){ //to check whether next value is avialable or not to swap
+           ListNode slow = temp.next;
+           ListNode fast = temp.next.next;
+
+           //swap work
+          slow.next = fast.next;
+          fast.next = slow;
+          temp.next = fast;
+          
+          //after swap change temp so that we can identify next swaping pair
+          temp = slow;
+        }
+
+        //return duumy next cuz head is changed now
+        return dummy.next;
+    }
+}
