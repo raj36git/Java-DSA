@@ -1,0 +1,31 @@
+//QuestuinLink:: https://leetcode.com/problems/koko-eating-bananas/description/
+
+//JavaCode::
+
+class Solution {
+    public int minEatingSpeed(int[] piles, int h) {
+        int left = 0, right = 1;
+        
+        while (!good(piles, h, right)) {
+            right *= 2;
+        }
+        
+        while (right > left + 1) {
+            int mid = (right + left) >>> 1;
+            if (good(piles, h, mid)) {
+                right = mid;
+            } else {
+                left = mid;
+            }
+        }
+        
+        return right;
+    }
+     private boolean good(int[] piles, int h, int speed) {
+        long hours = 0;
+        for (int i : piles) {
+            hours += (i + speed - 1) / speed;
+        }
+        return hours <= h;
+    }
+}
