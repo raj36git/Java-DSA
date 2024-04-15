@@ -1,0 +1,70 @@
+//QuestionLink:: https://leetcode.com/problems/powx-n/description/
+
+//JavaCode::
+
+1.. BRUTE
+class Solution {
+    public double myPow(double x, int n) {
+        long num = n; //store in num
+
+        double result =  1;
+
+        //if num is (-ve), make it positive
+        if(n<0){
+           num = n* (-1);
+        }
+
+        for(int i=1; i<=num; i++){
+          result = result * x;
+        }
+        //for negative num
+        if(n <0){
+          return 1/result;
+        }
+        //for positive
+        return result;
+    }
+}
+
+///////////////////
+2.. BETTER 
+class Solution {
+    public double myPow(double x, int n) {
+        long num = n; //store in num
+
+        double result =  1.0;
+
+        //if num is (-ve), make it positive
+        if(n<0){
+           num = num * (-1);
+        }
+        while( num != 0){
+          if(num %2 != 0){
+            result = result*x;
+            num = num-1;
+          }else{
+            x = x*x;
+            num = num/2;
+          }
+        }
+       
+        //for negative num
+        if(n <0){
+          result =  1/result;
+        }
+        //for positive
+        return result;
+    }
+}
+
+////////////////
+
+3// OPTIMIZED
+
+class Solution {
+    public double myPow(double x, int n) {
+      double pow = Math.pow(x,n);
+
+        return pow;
+    }
+}
