@@ -1,0 +1,33 @@
+//QuestionLink:: https://leetcode.com/problems/concatenation-of-array/description/
+
+//JavaCode::
+
+class Solution {
+    public int[] getConcatenation(int[] nums) {
+        int n = nums.length;
+
+        int[] ans = new int[2*n];
+
+        int k = 0;
+
+         //instead of running loop 2time, it can be done in once
+
+        //  for(int i=0; i<n; i++){
+        //     ans[k++] = nums[i];
+            
+        // }
+
+        // for(int i=0; i<n; i++){
+        //     ans[k++] = nums[i];
+        // }
+
+        for(int i=0; i<n; i++){
+            ans[k] = nums[i];
+            ans[k+n] = nums[i];  //(i)th and ()i+n)th element get simulated
+            k++;
+            
+        }
+
+        return ans;
+    }
+}
