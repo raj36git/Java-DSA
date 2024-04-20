@@ -1,0 +1,23 @@
+//QuestionLink:: https://leetcode.com/problems/add-digits/
+
+//JavaCode::
+
+class Solution {
+    public int addDigits(int n) {
+         while (true){
+            int sum = 0;
+            while (n != 0){
+                int rem = n%10;
+                sum = sum + rem;
+                n = n/10;
+            }
+
+            if (sum % 10 == sum) {
+                return sum;
+            }
+
+            n = sum;
+
+        }
+    }
+}
