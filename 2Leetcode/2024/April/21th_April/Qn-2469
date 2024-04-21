@@ -1,0 +1,16 @@
+//QuestionLink:: https://leetcode.com/problems/convert-the-temperature/description/
+
+//JavaCode::
+
+class Solution {
+    public double[] convertTemperature(double celsius) {
+        double[] ans = {0.0,0.0};
+       double kel = celsius + 273.15;
+       double feh = celsius * 1.80 + 32.00;
+
+        ans[0] = kel;
+        ans[1] = feh;
+
+       return ans;
+    }
+}
