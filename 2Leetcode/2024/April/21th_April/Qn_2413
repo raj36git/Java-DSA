@@ -1,0 +1,13 @@
+//QuestionLink::  https://leetcode.com/problems/smallest-even-multiple/description/
+
+//JavaCode::
+
+class Solution {
+    public int smallestEvenMultiple(int n) {
+        if (n%2 != 0){
+            return n*2;
+        }else {
+            return n;
+        }
+    }
+}
