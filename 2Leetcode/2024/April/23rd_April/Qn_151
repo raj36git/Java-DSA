@@ -1,0 +1,19 @@
+//QuestionLink:: https://leetcode.com/problems/reverse-words-in-a-string/description/
+
+//JavaCode::
+
+class Solution {
+    public String reverseWords(String s) {
+        String[] arrOfStr = s.split(" "); //convert string into string array
+        int n  = arrOfStr.length;
+        String result = "";
+        for(int i = n - 1; i >= 0 ; i--){
+            if(arrOfStr[i] == ""){
+                continue; //continue till there is space
+            }
+            result = result + " " + arrOfStr[i];
+        }
+
+        return result.trim(); //used trim to eliminate trailing spaces
+    }
+}
