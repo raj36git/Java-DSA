@@ -1,0 +1,26 @@
+//QuestionLink:: https://leetcode.com/problems/count-number-of-distinct-integers-after-reverse-operations/description/
+
+//JavaCode::
+
+class Solution {
+    public int countDistinctIntegers(int[] nums) {
+         int n = nums.length, count = 0;
+        HashSet<Integer> set = new HashSet<>(); //set to store unique value only
+        for(int val : nums){
+            set.add(val);               //add nums[val]
+            set.add(reverse(val));      //add reverse of val
+        }
+        return set.size();   //return the size of set which consists only unique value
+    }
+
+
+    //to reverse the value
+    public int reverse(int val){
+        int rev = 0;
+        while(val != 0){
+            rev = rev * 10 + (val % 10);
+            val /= 10;
+        }
+        return rev;
+    }
+}
