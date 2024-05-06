@@ -12,7 +12,7 @@ public class Addition {
         System.out.println("Enter two Number: ");
         int a = sc.nextInt();
         int b = sc.nextInt();
-
-        return a+b;
+        int sum = a +b;
+        return sum;
     }
 }
