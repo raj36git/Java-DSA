@@ -1,0 +1,25 @@
+//https://leetcode.com/problems/find-the-xor-of-numbers-which-appear-twice/description/
+
+//Java code
+
+class Solution {
+    public int duplicateNumbersXOR(int[] nums) {
+         HashMap<Integer, Integer> map = new HashMap<>();
+        for(int val : nums){
+            if(map.containsKey(val)){
+                int freq  = map.get(val);
+                map.put(val, freq+1);
+            }else{
+                map.put(val,1);
+            }
+        }
+        int xor = 0;
+         for(int val : map.keySet()){
+            int freq  = map.get(val);
+            if(freq == 2){
+                xor = xor^val;
+            }
+        }
+        return xor;
+    }
+}
