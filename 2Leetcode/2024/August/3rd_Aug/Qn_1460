@@ -1,0 +1,32 @@
+//https://leetcode.com/problems/make-two-arrays-equal-by-reversing-subarrays/description/?envType=daily-question&envId=2024-08-03
+
+//java code
+class Solution {
+    public boolean canBeEqual(int[] target, int[] arr) {
+        HashMap<Integer, Integer> map1 = new HashMap<>();
+
+        for(int val: target){
+          if(map1.containsKey(val)){
+            int freq = map1.get(val);
+            map1.put(val,freq+1);
+          }else{
+            map1.put(val,1);
+          }
+        }
+
+         HashMap<Integer, Integer> map2 = new HashMap<>();
+
+        for(int val: arr){
+          if(map2.containsKey(val)){
+            int freq = map2.get(val);
+            map2.put(val,freq+1);
+          }else{
+            map2.put(val,1);
+          }
+        }
+        if(map1.equals(map2)){
+          return true;
+        }
+        return false;
+    }
+}
