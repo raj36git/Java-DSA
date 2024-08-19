@@ -1,0 +1,44 @@
+//QuestionLink:: https://leetcode.com/problems/row-with-maximum-ones/description/
+
+*********Java Code************
+
+class Solution {
+    public int[] rowAndMaximumOnes(int[][] mat) {
+        int n = mat.length; 
+        int m = mat[0].length;
+        int index = -1;
+        int maxCount = 0;
+
+        for(int i=0; i<n; i++){
+            int first = firstIndex(mat[i], 0, m-1);
+            if(first != -1 && m-first>maxCount){
+                index = i;
+                maxCount = m-first;
+            }
+        }
+        int[] ans = new int[2];
+        if(index == -1) ans[0]=0;
+        else ans[0]=index;
+        ans[1]=maxCount;
+        return ans;
+    }
+
+    public int firstIndex(int[] nums, int start, int end){
+        Arrays.sort(nums);
+      int ans = -1;
+
+      while(start<=end){
+        int mid = start + (end-start)/2;
+
+        if(nums[mid] == 1){
+          ans = mid;
+          end = mid-1;
+        }else if(nums[mid]<1){
+          start = mid+1;
+        }else{
+          end = mid-1;
+        }
+      }
+      return ans;
+    }
+}
