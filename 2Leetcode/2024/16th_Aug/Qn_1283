@@ -1,7 +1,7 @@
 //QuestionLink :: https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/description/
-
+********************************************
 //JavaCode::
-
+******************************************
 class Solution {
     public int smallestDivisor(int[] nums, int threshold) {
       int max = findMax(nums);
