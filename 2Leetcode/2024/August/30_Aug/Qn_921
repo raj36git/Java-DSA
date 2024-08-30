@@ -1,0 +1,39 @@
+------------Question Link------
+
+https://leetcode.com/problems/minimum-add-to-make-parentheses-valid/description/
+
+-----------Code-------------
+
+class Solution {
+    public int minAddToMakeValid(String s) {
+       Stack<Character> st = new Stack<>();
+        int count = 0;
+        for(int i = 0; i < s.length(); i++){
+          char br = s.charAt(i);
+            if(br=='(' || br=='{' || br=='['){
+                st.push(br);
+            }else{
+                if(st.isEmpty()){
+                  count++;
+                }else{
+                  char peeked = st.peek();
+
+                  if((br==')' && peeked=='(') || 
+                    (br=='}' && peeked=='{') ||
+                    (br==']' && peeked=='[')){
+                      st.pop();
+                  }else{
+                     count++;
+                  }
+                }
+            }
+        }
+        if(st.isEmpty()) return count;
+
+      //  while(!st.isEmpty()){
+      //   count++;
+      //   st.pop();
+      //  }
+       return count+ st.size();
+    }
+}
