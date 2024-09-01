@@ -1,0 +1,25 @@
+-----------Question Link--------
+https://leetcode.com/problems/convert-1d-array-into-2d-array/description/?envType=daily-question&envId=2024-09-01
+
+---------Code--------------------
+
+class Solution {
+    public int[][] construct2DArray(int[] original, int m, int n) {
+        int l = original.length;
+        if(l != m*n){
+          return new int[0][0];
+        }
+        int[][] ans = new int[m][n];
+        int i=0;
+        int j=0;
+        for(int ele : original){
+            ans[i][j] = ele;
+            j++;
+            if(j>=n){
+            i++;
+            j=0;
+          }
+        }
+        return ans;
+    }
+}
