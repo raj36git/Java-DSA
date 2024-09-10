@@ -1,0 +1,35 @@
+------------------QuestionLink---------------
+
+https://leetcode.com/problems/insert-greatest-common-divisors-in-linked-list/description/?envType=daily-question&envId=2024-09-10
+
+---------------Code-------------------
+
+class Solution {
+    public ListNode insertGreatestCommonDivisors(ListNode head) {
+        ListNode temp = head;
+
+        while(temp != null && temp.next != null){
+            int value = gcd(temp);
+            ListNode node = new ListNode(value);
+
+            node.next = temp.next;
+            temp.next = node;
+            temp = node.next;
+        }
+        return head;
+    }
+
+     public int gcd(ListNode temp){
+        int a = temp.val;
+        int b = temp.next.val;
+
+        int result = Math.min(a, b);
+        while (result > 0) {
+            if (a % result == 0 && b % result == 0) {
+                break;
+            }
+            result--;
+        }
+        return result;
+    }
+}
