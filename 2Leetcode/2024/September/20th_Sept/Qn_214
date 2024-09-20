@@ -1,0 +1,25 @@
+---------------Question Link--------------
+https://leetcode.com/problems/shortest-palindrome/
+
+-----------------Code-------------
+class Solution {
+    public String shortestPalindrome(String s) {
+        int left=0; 
+        int right=s.length()-1;
+ 
+        while(right>=0){
+            if(s.charAt(left)==s.charAt(right)){
+                left++;
+            }
+            right--;
+        }
+    
+        if(left==s.length())
+            return s;
+    
+        String suffix = s.substring(left);
+        String prefix = new StringBuilder(suffix).reverse().toString();
+        String mid = shortestPalindrome(s.substring(0, left));
+        return prefix+mid+suffix;
+    }
+}
