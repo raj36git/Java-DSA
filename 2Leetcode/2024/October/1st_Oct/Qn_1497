@@ -1,0 +1,25 @@
+---------------Question Link-------------
+https://leetcode.com/problems/check-if-array-pairs-are-divisible-by-k/description/?envType=daily-question&envId=2024-10-01
+
+---------Dart Code-----------------
+class Solution {
+  bool canArrange(List<int> arr, int k) {
+    List<int> remainderCount = List.filled(k, 0);
+    
+    // Count remainders
+    for (int num in arr) {
+      int remainder = (num % k + k) % k;  // if remainder -ve, make it positive remainder
+      remainderCount[remainder]++;
+    }
+    
+    // Check pairs of remainders 
+    for (int r = 1; r <= k / 2; r++) {
+      if (remainderCount[r] != remainderCount[k - r]) {
+        return false;
+      }
+    }
+    
+    // Check remainder 0 (must be even count)
+    return remainderCount[0] % 2 == 0;
+  }
+}
