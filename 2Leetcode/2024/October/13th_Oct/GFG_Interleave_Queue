@@ -1,0 +1,71 @@
+-----------------Question Link--------------
+https://www.geeksforgeeks.org/problems/interleave-the-first-half-of-the-queue-with-second-half/0
+
+------------------Code-------------------
+
+// Approash 1 : using STACK
+
+
+class Solution {
+    public static ArrayList<Integer> rearrangeQueue(int N, Queue<Integer> q) {
+        Stack<Integer> st = new Stack<>();
+        
+        int n = q.size()/2;
+        
+        while(q.size()>n){
+            st.push(q.remove());
+        }
+        while(!st.isEmpty()){
+            q.add(st.pop());
+        }
+        while(q.size()>n){
+            st.push(q.remove());
+        }
+        while(!st.isEmpty()){
+            q.add(st.pop());
+            q.add(q.remove());
+        }
+        
+        //reverse the queue
+        
+        while(!q.isEmpty()){
+            st.push(q.remove());
+        }
+         while(!st.isEmpty()){
+            q.add(st.pop());
+        }
+        
+         ArrayList<Integer> list=new ArrayList<>();
+        while(!q.isEmpty()){
+            list.add(q.remove());
+        }
+         return list;
+    }
+}
+
+//Approach 2: Using Queue
+
+class Solution {
+    public static ArrayList<Integer> rearrangeQueue(int N, Queue<Integer> q) {
+        
+        Queue<Integer> q1 = new LinkedList<>();
+        
+        int n = q.size()/2;
+        
+        while(q.size()>n){
+            q1.add(q.remove());
+        }
+        
+        while(!q1.isEmpty()){
+            q.add(q1.remove());
+            q.add(q.remove());
+        }
+        
+         ArrayList<Integer> list=new ArrayList<>();
+        while(!q.isEmpty()){
+            list.add(q.remove());
+        }
+         return list;
+    }
+}
+        
