@@ -1,0 +1,45 @@
+------------Question Link--------------
+
+https://leetcode.com/problems/remove-k-digits/description/
+
+---------------Code---------------------
+
+class Solution {
+    public String removeKdigits(String num, int k) {
+        if (num.length() == k) return "0";
+
+        Stack<Character> st = new Stack<>();
+        int i = 0;
+
+        while (i < num.length()) {
+            while (!st.isEmpty() && k > 0 && ((st.peek() - '0') > (num.charAt(i) - '0'))) {
+                st.pop();
+                k--;
+            }
+            st.push(num.charAt(i));
+            i++;
+        }
+
+        while (k > 0) {
+            st.pop();
+            k--;
+        }
+
+        StringBuilder res = new StringBuilder();
+
+        while (!st.isEmpty()) {
+            res.append(st.pop());
+        }
+
+        res.reverse();
+
+        while (res.length() > 1 && res.charAt(0) == '0') {
+            res.deleteCharAt(0);
+        }
+        if(res.isEmpty()){
+            return "0";
+        }else{
+            return res.toString();
+        }
+    }
+}
