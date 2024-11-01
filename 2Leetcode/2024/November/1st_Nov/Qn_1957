@@ -1,0 +1,29 @@
+---------------Question Link----------------
+https://leetcode.com/problems/delete-characters-to-make-fancy-string/description/
+
+-------------Java  Code------------------
+
+class Solution {
+    public String makeFancyString(String s) {
+        int n = s.length();
+
+        if(n <= 2) return s;
+
+        StringBuilder fancy = new StringBuilder("");
+            fancy.append(s.charAt(0));
+            fancy.append(s.charAt(1));
+
+        for(int i=2; i<n; i++){
+            char ch = s.charAt(i);
+            // char ith_1 = s.charAt(i-1);
+            // char ith_2 = s.charAt(i-2);
+            if(ch == s.charAt(i-1) && ch == s.charAt(i-2)){
+                continue;
+            }else{
+                fancy.append(ch);
+            }
+        }
+        // String str = fancy.toString();
+        return fancy.toString();
+    }
+}
