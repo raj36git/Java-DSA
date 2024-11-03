@@ -1,0 +1,15 @@
+-------------Question Link------------
+https://leetcode.com/problems/rotate-string/description/?envType=daily-question&envId=2024-11-03
+
+--------------Java Code------------
+class Solution {
+    public boolean rotateString(String s, String goal) {
+        if(s.length() != goal.length()) return false;
+
+        String concate = s + s;
+        if(concate.contains(goal)){
+            return true;
+        }
+        return false;
+    }
+}
